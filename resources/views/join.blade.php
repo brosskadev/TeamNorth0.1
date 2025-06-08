@@ -5,7 +5,6 @@
 @section('body-class', 'bg-home')
 
 @section('content')
-    <div class="container py-1 about-container">
 
         <div class="image-container">
         <video id="popanov" width="1200" height="800" controls>
@@ -27,9 +26,8 @@
     <a href="https://discord.gg/teamnorth"
        class="btn btn-primary text-center fw-bold"
        style="width: 60%; height: 100px; font-size: 2rem; display: flex; align-items: center; justify-content: center;">
-        Нажми Сюда Писюн + 5 см!! проверено🤭🤭😁📏
+        Вступить
     </a>
 </div>
 
-    </div>
 @endsection

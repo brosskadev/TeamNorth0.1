@@ -14,9 +14,16 @@ export default {
   data() {
     return {
       news: [
-        'BlackBerry опять проиграли скёрмиш в 250 тикетов, но на squad comp не зарегали эту игру',
+        'БетБум опять проиграли скёрмиш в 250 тикетов, но почему-то на squad comp игры не появилось...',
         'У Brosski случилась очередная трясучка после скёрмиша',
+        'Ралли сожжён.',
         'Эпоха, лишённая морали выкосил всю траву на своём участке',
+        'Разъехался об камень',
+        'Сквадной где фронт? Там.',
+        'Qimay довел Эпоху до новчного срача в чате',
+        'Suspect кикнут за баловство с тэгом (кто следующий?)',
+        'Фоба сгорела.',
+        'НА МНЕ!!!',
       ],
       animationDuration: 40
     }
@@ -36,8 +43,8 @@ export default {
   white-space: nowrap;
   box-sizing: border-box;
   border: 1px solid #ccc;
-  background-color: #222;
-  color: #fff;
+  background-color: #1f2833;
+  color: #ffffff;
   padding: 0.5rem 1rem;
 }
 
@@ -45,7 +52,7 @@ export default {
   display: inline-block;
   white-space: nowrap;
   animation: marqueeAnim linear infinite;
-  animation-duration: 40s; /* Значение динамическое из data */
+  animation-duration: 70s; /* Значение динамическое из data */
 }
 
 .news-item {

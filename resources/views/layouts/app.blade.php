@@ -18,13 +18,20 @@
         <a class="nav-link" href="/join-north">Вступить</a>
         <a href="/login" class="btn btn-primary">Войти</a>
     </div>
-    
-        @yield('content')
+
+
+        <div id="app">
+          <stroka></stroka>
+
+          @yield('content')
+
+        </div>
+
 
     <footer class="bg-dark text-light py-3 mt-auto">
   <div class="container d-flex justify-content-between align-items-center flex-wrap">
     <div>
-      &copy; 2025 Team North. Все фобы выкопаны, рали сожжены, а права защищены.
+      &copy; 2018-2025 Team North. Все фобы выкопаны, рали сожжены, а права защищены.
     </div>
     <div>
       <a href="/" class="text-light me-3 text-decoration-none">О команде</a>
@@ -36,3 +43,5 @@
 
 </body>
 </html>
+
+@vite('resources/js/app.js')

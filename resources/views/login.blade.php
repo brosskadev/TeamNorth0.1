@@ -5,32 +5,53 @@
 @section('body-class', 'bg-home')
 
 @section('content')
-    <div class="d-flex justify-content-center align-items-center">
-        <div class="card p-4 shadow" style="width: 100%; max-width: 400px;">
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul class="mb-0">
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
 
-            <form method="POST" action="{{ url('/login') }}">
-                @csrf
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input id="email" type="email" name="email" class="form-control" required>
-                </div>
+<div class="section-wrapper" style="display: flex; justify-content: center; align-items: center; height: 80vh; margin: 0; padding: 0;">
+    <div class="card shadow-lg p-4" style="width: 100%; max-width: 400px; background-color:rgb(255, 255, 255);">
+        <h2 class="text-center mb-4">Вход</h2>
 
-                <div class="mb-3">
-                    <label for="password" class="form-label">Пароль</label>
-                    <input id="password" type="password" name="password" class="form-control" required>
-                </div>
+        <form method="POST" action="/login">
+    @csrf
+    <!-- Email -->
+    <div class="mb-3">
+    <label for="nickname" class="form-label">Логин</label>
+    <input
+        type="text"
+        id="login"
+        name="login"
+        class="form-control @error('login') is-invalid @enderror"
+        value="{{ old('login') }}"
+        required
+    >
+    @error('login')
+        <div class="invalid-feedback">{{ $message }}</div>
+    @enderror
+</div>
 
-                <button type="submit" class="btn btn-primary w-100">Войти</button>
-            </form>
-        </div>
+<div class="mb-3">
+    <label for="password" class="form-label">Пароль</label>
+    <input
+        type="password"
+        id="password"
+        name="password"
+        class="form-control"
+        required
+    >
+</div>
+
+<div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="remember" name="remember">
+    <label class="form-check-label" for="remember">Запомнить меня</label>
+</div>
+
+    <!-- Кнопка входа -->
+    <div class="d-grid">
+        <button type="submit" class="btn btn-primary">Войти</button>
     </div>
+</form>
+
+
+    </div>
+</div>
+
 @endsection

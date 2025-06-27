@@ -9,8 +9,9 @@ body {
 }
 
 .bg-home {
-    background-image: url('/images/NORTH_UNARMED.png');
-    background-color: #c5c6c7;
+    
+    background: linear-gradient(90deg, #0f172a 0%, #1e3a8a 100%);
+
 
     background-size: cover;
     background-position: center;
@@ -20,33 +21,45 @@ body {
     font-family: 'Segoe UI', sans-serif;
 }
 
+.team-name {
+    color: #007bff;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.team-tagline {
+    color: white;
+    font-size: 22px;
+    font-weight: 400;
+}
+
+a.navnorth-container {
+  text-decoration: none;
+  color: inherit;
+}
+
 .about-container {
     border-radius: 8px;
     padding: 10px 20px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     margin-bottom: 40px;
-    background-color: #1f2833;
-
-    max-width: 720px; /* или другое значение по вашему выбору */
+    max-width: 600px;
     width: 100%;
-    margin-left: auto;
-    margin-right: auto;
 }
 
-.image-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 60vh; /* ограничиваем высоту, чтобы не давать вылазить за экран */
-    max-width: 100%;
-    margin: 40px auto 40px auto; /* отступ снизу и по центру */
-}
+.welcome-container {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;    
+  justify-content: space-between;
+  gap: 24px;           
+  padding: 40px 20px;
+  width: 100%;       /* занять всю ширину родителя */
+  height: 100%;      /* занять всю высоту родителя */
+  box-sizing: border-box; /* чтобы padding учитывался внутри размеров */
 
-.image-container img {
-    max-width: 100%; /* не вылезает за пределы контейнера */
-    max-height: 100%; /* не превышает высоту контейнера */
-    object-fit: contain; /* масштабирует картинку без искажения */
-    border-radius: 5px; /* если хотите скруглить углы */
+  position: relative;
+  overflow: visible;
 }
 
 .nav-container {
@@ -105,9 +118,56 @@ body {
     font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
 }
 
+.nav-dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%; /* Появляется под ссылкой */
+  left: 0;
+  background-color: #0e0b10;
+  padding: 10px 0;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  min-width: 150px;
+  z-index: 999;
+}
+
+.nav-dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-item {
+  display: block;
+  padding: 10px 20px;
+  color: #fff;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #1c68da;
+  color:#fff
+}
+
 footer {
   position: fixed;
   bottom: 0;
   width: 100%;
   z-index: 1030; /* чтобы быть поверх остальных элементов */
+}
+
+.bg-dark {
+  background-color: #0e0b10 !important;
+}
+
+.section-wrapper {
+
+  height: 90%;
+  width: 100%;
+
+  overflow: hidden; /* добавлено */
 }

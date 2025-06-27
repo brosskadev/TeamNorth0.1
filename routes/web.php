@@ -1,29 +1,29 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful;
+use App\Http\Controllers\AuthController;
+use App\Http\Middleware\CheckUserStillExists;
 
-Route::redirect('/', '/about');
-
-Route::get('/about', function () {
+Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/north-history', function () {
-    return view('history');
+Route::get('/about', function () {
+    return view('about');
 });
 
-Route::get('/north-roster', function () {
-    return view('roster');
+Route::get('/login', [AuthController::class, 'showloginpage'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
+
+Route::middleware([
+    'web',
+    'auth',
+    EnsureFrontendRequestsAreStateful::class,
+    CheckUserStillExists::class
+])->group(function () {
+    Route::get('/profile', function () {
+        return view('profile');
+    });
 });
 
-Route::get('/old-rosters', function () {
-    return view('oldrosters');
-});
-
-Route::get('/login', function () {
-    return view('login');
-});
-
-Route::get('/join-north', function () {
-    return view('join');
-});

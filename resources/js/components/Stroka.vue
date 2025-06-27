@@ -20,7 +20,7 @@ export default {
         'Эпоха, лишённая морали выкосил всю траву на своём участке',
         'Разъехался об камень',
         'Сквадной где фронт? Там.',
-        'Qimay довел Эпоху до новчного срача в чате',
+        'Qimay довел Эпоху до нового срача в чате',
         'Suspect кикнут за баловство с тэгом (кто следующий?)',
         'Фоба сгорела.',
         'НА МНЕ!!!',
@@ -42,7 +42,6 @@ export default {
   overflow: hidden;
   white-space: nowrap;
   box-sizing: border-box;
-  border: 1px solid #ccc;
   background-color: #1f2833;
   color: #ffffff;
   padding: 0.5rem 1rem;

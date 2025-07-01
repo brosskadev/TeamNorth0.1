@@ -14,8 +14,7 @@ class AuthService implements AuthServiceInterface{
         $this->authRepo = $authRepo;
     }
 
-    public function login(string $login, string $password, bool $remember = false): bool
-{
+    public function login(string $login, string $password, bool $remember = false): bool{
     $user = $this->authRepo->findByLogin($login);
 
     if (!$user || !Hash::check($password, $user->password)) {
@@ -24,7 +23,8 @@ class AuthService implements AuthServiceInterface{
 
     Auth::login($user, $remember);
     return true;
-}
+    }
+    
     public function logout(): void
     {
         Auth::logout();

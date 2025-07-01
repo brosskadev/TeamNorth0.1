@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="{{ asset('images/N.png') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <link href="/css/app.css" rel="stylesheet">
 </head>
 <body class="@yield('body-class')">
@@ -25,8 +26,8 @@
 
             <div class="dropdown-menu">
               <a class="dropdown-item" href="/about">О нас</a>
-              <a class="dropdown-item" href="/news">Новости</a>
-              <a class="dropdown-item" href="/results">Результаты</a>
+              <a class="dropdown-item" href="/">Новости</a>
+              <a class="dropdown-item" href="/">Результаты</a>
             </div>
          </div>
 
@@ -38,11 +39,16 @@
               <a class="dropdown-item" href="/">Тактика</a>
               </div>
           </div>
-        <a class="nav-link" href="/academy">Академия</a>
+        <a class="nav-link" href="/">Академия</a>
         <a class="nav-link" href="https://discord.gg/teamnorth">
           <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/discord.svg" alt="Discord" style="height: 24px; filter: invert(1);" />
         </a>
-        <a href="/profile" class="btn btn-primary">Профиль</a>
+        @if(Auth::check())
+          <a href="{{ route('profile.by.login', Auth::user()->login) }}" class="btn btn-primary">Профиль</a>
+
+        @else
+          <a href="{{ route('login') }}" class="btn btn-primary">Войти</a>
+        @endif
     </div>
 
 

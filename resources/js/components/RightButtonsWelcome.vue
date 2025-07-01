@@ -12,10 +12,10 @@
       <img class="button-bg" :src="btn.bg" alt="background" />
       <div class="overlay">
         <img v-if="btn.img" :src="btn.img" alt="icon" />
-        <div v-if="btn.text" class="btn-text">
-          <div v-for="(line, j) in btn.text" :key="j">{{ line }}</div>
-        </div>
-        <span v-else>{{ btn.label }}</span>
+          <div v-if="btn.text" class="btn-text">
+            <div v-for="(line, j) in btn.text" :key="j">{{ line }}</div>
+          </div>
+          <span v-else-if="btn.label" class="btn-text">{{ btn.label }}</span>
       </div>
     </a>
   </div>
@@ -99,6 +99,9 @@ export default {
   flex-direction: column;
   gap: 4px;
   align-items: flex-start;
+  background-color: rgba(0, 0, 0, 0.6); /* тёмная полупрозрачная подложка */
+  padding: 8px 12px;
+  border-radius: 8px;
 }
 
 /* Анимация */

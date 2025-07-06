@@ -26,7 +26,7 @@ export default {
   data() {
     return {
       buttons: [
-        { href: '/news', label: 'НОВОСТИ', bg: '/welcome/NORTHLIVE1.jpg' },
+        { href: '/', label: 'НОВОСТИ', bg: '/welcome/NORTHLIVE1.jpg' },
       ]
     };
   }

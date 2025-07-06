@@ -6,26 +6,27 @@
 
 @section('content')
 
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
 <div class="container mt-4">
 
   <!-- Имя игрока -->
-    <div class="d-flex justify-content-between align-items-center mb-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
     <h1 class="text-uppercase fw-bold text-white mb-0">
         {{ $user->login }}
     </h1>
 
     <form method="POST" action="{{ route('logout') }}">
-    @csrf
-    <button type="submit" class="btn btn-primary">
-      Выйти
-    </button>
+      @csrf
+      <button type="submit" class="btn btn-primary">
+        Выйти
+      </button>
     </form>
 
     @if(Auth::check() && Auth::user()->role === 'admin')
-        <a href="/dashboard" class="btn btn-primary">Админ панель</a>
+      <a href="/dashboard" class="btn btn-primary">Админ панель</a>
     @endif
-
-</div>
+  </div>
 
   <!-- Основная статистика игрока -->
   <div class="row g-4 mb-4">
@@ -61,6 +62,28 @@
     </div>
   </div>
 
+  <!-- Дополнительные данные -->
+  <div class="row g-4 mb-4">
+    <div class="col-md-4">
+      <div class="bg-light p-3 rounded shadow text-center">
+        <h6 class="text-muted">Специализация</h6>
+        <p class="fs-5 text-dark mb-0">{{ $player->specialization ?? '-' }}</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="bg-light p-3 rounded shadow text-center">
+        <h6 class="text-muted">Бригада</h6>
+        <p class="fs-5 text-dark mb-0">{{ $player->brigade ?? '-' }}</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="bg-light p-3 rounded shadow text-center">
+        <h6 class="text-muted">Отпуск</h6>
+        <p class="fs-5 text-dark mb-0">{{ $player->on_holiday ?? '-' }}</p>
+      </div>
+    </div>
+  </div>
+
   <!-- Раздел: статистика и график -->
   <div class="row g-4">
 
@@ -77,14 +100,16 @@
         </div>
         <div class="col-md-6">
           <div class="bg-light p-4 rounded shadow">
-            <h5 class="text-muted">Статистика 2</h5>
-            <p class="fs-4 text-dark mb-0">Значение или данные...</p>
+            <h5 class="text-muted">Результативность в компете</h5>
+            <p class="fs-4 text-dark mb-0">{{ $player->compet_activity ?? '-' }}</p>
           </div>
         </div>
         <div class="col-md-6">
           <div class="bg-light p-4 rounded shadow">
-            <h5 class="text-muted">Статистика 3</h5>
-            <p class="fs-4 text-dark mb-0">Значение или данные...</p>
+            <h5 class="text-muted">Дни на ролях</h5>
+            <p class="fs-6 text-dark mb-0">Новобранец: {{ $player->days_recruit ?? 0 }} д.</p>
+            <p class="fs-6 text-dark mb-0">Трубовой: {{ $player->days_prospect ?? 0 }} д.</p>
+            <p class="fs-6 text-dark mb-0">Основа: {{ $player->days_main ?? 0 }} д.</p>
           </div>
         </div>
       </div>

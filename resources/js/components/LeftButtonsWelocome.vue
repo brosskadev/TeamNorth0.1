@@ -26,8 +26,8 @@ export default {
   data() {
     return {
       buttons: [
-        { href: '/schedule', label: 'РАСПИСАНИЕ', bg: '/welcome/poster_recruiting_2024.jpg' },
-        { href: '/tactics', label: 'РЕДАКТОР ТАКТИКИ', bg: '/welcome/tactic.jpg' }
+        { href: '/', label: 'РАСПИСАНИЕ', bg: '/welcome/poster_recruiting_2024.jpg' },
+        { href: '/', label: 'РЕДАКТОР ТАКТИКИ', bg: '/welcome/tactic.jpg' }
       ]
     };
   }

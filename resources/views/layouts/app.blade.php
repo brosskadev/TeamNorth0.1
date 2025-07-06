@@ -28,6 +28,7 @@
               <a class="dropdown-item" href="/about">О нас</a>
               <a class="dropdown-item" href="/">Новости</a>
               <a class="dropdown-item" href="/">Результаты</a>
+              <a class="dropdown-item" href="/roster">Состав</a>
             </div>
          </div>
 

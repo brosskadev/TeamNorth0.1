@@ -28,7 +28,7 @@
               <a class="dropdown-item" href="/about">О нас</a>
               <a class="dropdown-item" href="/">Новости</a>
               <a class="dropdown-item" href="/">Результаты</a>
-              <a class="dropdown-item" href="/roster">Состав</a>
+              <a class="dropdown-item" href="/">Состав</a>
             </div>
          </div>
 
@@ -40,7 +40,7 @@
               <a class="dropdown-item" href="/">Тактика</a>
               </div>
           </div>
-        <a class="nav-link" href="/">Академия</a>
+        <a class="nav-link" href="/join">Академия</a>
         <a class="nav-link" href="https://discord.gg/teamnorth">
           <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/discord.svg" alt="Discord" style="height: 24px; filter: invert(1);" />
         </a>
@@ -68,7 +68,7 @@
     </div>
     <div>
       <a href="/" class="text-light me-3 text-decoration-none">О команде</a>
-      <a href="/academy" class="text-light me-3 text-decoration-none">Присоединиться</a>
+      <a href="/join" class="text-light me-3 text-decoration-none">Присоединиться</a>
       <a href="https://youtu.be/PU8o9R-Vrfc?si=aXZM_vMnv61OgNLv&t=119" class="text-light text-decoration-none">Политика конфиденциальности</a>
     </div>
   </div>

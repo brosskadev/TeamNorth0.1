@@ -15,6 +15,10 @@ Route::get('/about', function () {
     return view('about');
 });
 
+Route::get('/join', function () {
+    return view('join');
+});
+
 Route::get('/roster', [PlayerController::class, 'getAllPlayers'])->name('roster');
 
 Route::get('/login', [AuthController::class, 'showloginpage'])->name('login');

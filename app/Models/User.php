@@ -50,6 +50,6 @@ class User extends Authenticatable
 
     public function player()
     {
-        return $this->hasOne(Player::class);
+        return $this->hasOne(Player::class, 'user_id', 'id');
     }
 }

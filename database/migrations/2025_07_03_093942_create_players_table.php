@@ -12,30 +12,30 @@ return new class extends Migration
     public function up()
     {
         Schema::create('players', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+        $table->id(); // автоинкрементный PK, называется id
+        $table->integer('player_id')->unique(); // уникальный вводимый вручную
 
-            $table->string('personnel_number')->unique()->nullable();
-            $table->string('steam_id')->nullable();
-            $table->string('specialization')->nullable();
-            $table->string('brigade')->nullable();
+        $table->foreignId('user_id')->unique()->constrained()->onDelete('cascade'); 
+        // уникальный, чтобы 1:1 связь User-Player
 
-            $table->date('join_date')->nullable();
-            $table->integer('days_in_team')->default(0);
-            $table->integer('days_recruit')->nullable();
-            $table->integer('days_prospect')->nullable();
-            $table->integer('days_main')->nullable();
+        // Остальные поля
+        $table->string('steam_id')->nullable();
+        $table->string('specialization')->nullable();
+        $table->string('brigade')->nullable();
+        $table->date('join_date')->nullable();
+        $table->integer('days_in_team')->default(0);
+        $table->integer('days_recruit')->nullable();
+        $table->integer('days_prospect')->nullable();
+        $table->integer('days_main')->nullable();
+        $table->integer('kills')->default(0);
+        $table->integer('deaths')->default(0);
+        $table->boolean('on_holiday')->default(false);
+        $table->string('clan_role')->nullable();
+        $table->dateTime('kick_date')->nullable();
 
-            $table->integer('kills')->default(0);
-            $table->integer('deaths')->default(0);
-
-            $table->boolean('on_holiday')->default(false);
-
-            $table->string('clan_role')->nullable();
-            $table->dateTime('kick_date')->nullable();
-
-            $table->timestamps();
+        $table->timestamps();
         });
+
     }
 
     /**

@@ -6,8 +6,7 @@ import LeftButtonsWelocome from './components/LeftButtonsWelocome.vue'
 import CenterButtonsWelcome from './components/CenterButtonsWelcome.vue'
 import RightButtonsWelcome from './components/RightButtonsWelcome.vue'
 import AboutSection from './components/AboutSection.vue'
-
-console.log('Vue app init') 
+import Join from './components/Join.vue'
 
 const app = createApp({})
 
@@ -18,5 +17,6 @@ app.component('leftbuttonswelcome', LeftButtonsWelocome)
 app.component('centerbuttonswelcome', CenterButtonsWelcome)
 app.component('rightbuttonswelcome', RightButtonsWelcome)
 app.component('aboutsection', AboutSection)
+app.component('join', Join)
 
 app.mount('#app')

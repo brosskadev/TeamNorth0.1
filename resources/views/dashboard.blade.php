@@ -40,6 +40,7 @@
       <table class="table table-bordered table-striped">
         <thead>
           <tr>
+            <th>ID</th>
             <th>Ник</th>
             <th>Логин</th>
             <th>Steam ID</th>
@@ -47,9 +48,9 @@
             <th>Бригада</th>
             <th>Дата вступления</th>
             <th>Дни в команде</th>
-            <th>Новобранец</th>
-            <th>Трудовой</th>
-            <th>Основа</th>
+            <th>Дней на Новобранец</th>
+            <th>Дней на Трудовой</th>
+            <th>Дней на Основа</th>
             <th>Убийства</th>
             <th>Смерти</th>
             <th>Отпуск</th>
@@ -60,6 +61,7 @@
         <tbody>
           @foreach($users as $user)
           <tr>
+            <td>{{ $user->player->player_id ?? '-' }}</td>
             <td>
               @if($user->nickname)
                 <a href="{{ route('profile.by.login', ['login' => $user->login]) }}">
@@ -145,15 +147,15 @@
                         <input type="date" name="join_date" class="form-control" value="{{ $user->player->join_date ? \Carbon\Carbon::parse($user->player->join_date)->format('Y-m-d') : '' }}">
                       </div>
                       <div class="mb-3">
-                        <label class="form-label">Новобранец</label>
+                        <label class="form-label">Дней на Новобранец</label>
                         <input type="number" name="days_recruit" class="form-control" value="{{ $user->player->days_recruit }}">
                       </div>
                       <div class="mb-3">
-                        <label class="form-label">Трудовой</label>
+                        <label class="form-label">Дней на Трудовой</label>
                         <input type="number" name="days_prospect" class="form-control" value="{{ $user->player->days_prospect }}">
                       </div>
                       <div class="mb-3">
-                        <label class="form-label">Основа</label>
+                        <label class="form-label">Дней на Основа</label>
                         <input type="number" name="days_main" class="form-control" value="{{ $user->player->days_main }}">
                       </div>
                       <div class="mb-3">
@@ -164,10 +166,12 @@
                         <label class="form-label">Смерти</label>
                         <input type="number" name="deaths" class="form-control" value="{{ $user->player->deaths }}">
                       </div>
-                      <div class="mb-3">
-                        <label class="form-label">Роль в клане</label>
-                        <input type="text" name="clan_role" class="form-control" value="{{ $user->player->clan_role }}">
-                      </div>
+                      <select name="clan_role" id="clan_role" class="form-select">
+                        <option value="">-- Выберите роль --</option>
+                        <option value="новобранец" {{ ($user->player->clan_role ?? '') === 'Новобранец' ? 'selected' : '' }}>Новобранец</option>
+                        <option value="проспект" {{ ($user->player->clan_role ?? '') === 'Проспект' ? 'selected' : '' }}>Проспект</option>
+                        <option value="основа" {{ ($user->player->clan_role ?? '') === 'Основа' ? 'selected' : '' }}>Основа</option>
+                      </select>
                       <div class="form-check mb-3">
                         <input 
                           class="form-check-input" 
@@ -216,6 +220,13 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
         </div>
         <div class="modal-body">
+
+        <div class="mb-3">
+          <label for="player_id" class="form-label">ID игрока</label>
+          <input type="text" name="player_id" id="player_id" class="form-control" required value="{{ old('player_id') }}">
+          @error('player_id')<div class="text-danger">{{ $message }}</div>@enderror
+        </div>
+
           <div class="mb-3">
             <label for="nickname" class="form-label">Ник</label>
             <input type="text" name="nickname" id="nickname" class="form-control" required value="{{ old('nickname') }}">
@@ -250,9 +261,15 @@
             <input type="date" name="join_date" id="join_date" class="form-control" value="{{ old('join_date') }}">
           </div>
           <div class="mb-3">
-            <label for="clan_role" class="form-label">Роль в клане</label>
-            <input type="text" name="clan_role" id="clan_role" class="form-control" value="{{ old('clan_role') }}">
-          </div>
+          <label for="clan_role" class="form-label">Роль в клане</label>
+          <select name="clan_role" id="clan_role" class="form-select">
+            <option value="">-- Выберите роль --</option>
+            <option value="новобранец" {{ old('clan_role') == 'новобранец' ? 'selected' : '' }}>Новобранец</option>
+            <option value="проспект" {{ old('clan_role') == 'проспект' ? 'selected' : '' }}>Проспект</option>
+            <option value="основа" {{ old('clan_role') == 'основа' ? 'selected' : '' }}>Основа</option>
+          </select>
+        </div>
+
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>

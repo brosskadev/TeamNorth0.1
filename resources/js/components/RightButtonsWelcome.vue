@@ -28,7 +28,7 @@ export default {
       buttons: [
         { href: 'https://steamcommunity.com/sharedfiles/filedetails/?id=3359758575&searchtext=%D0%AD%D0%BF%D0%BE%D1%85%D0%B0', label: 'КУЛЬТУРНОЕ НАСЛЕДИЕ', bg: '/welcome/logist.jpg'},
         { href: 'https://www.youtube.com/watch?v=PU8o9R-Vrfc&list=RDPU8o9R-Vrfc&start_radio=1', label: 'РАДИО ТИМ НОРТ 7 ЛЕТ КОМАНДЕ', bg: '/welcome/radio.jpg' },
-        { href: '/', label: 'ПРИСОЕДИНЯЙСЯ К СООБЩЕСТВУ', bg: '/welcome/goslingmenu.jpg'}
+        { href: '/join', label: 'ПРИСОЕДИНЯЙСЯ К СООБЩЕСТВУ', bg: '/welcome/goslingmenu.jpg'}
       ]
     };
   }
